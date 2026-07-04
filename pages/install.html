@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://runright.dev/pages/install.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Install RunRight | CI Runner Right-Sizing Setup Guide" />
-  <meta property="og:description" content="Step-by-step setup for CI profiling, runner recommendations, policy enforcement, and Slack-routed alerts." />
+  <meta property="og:description" content="Step-by-step setup for CI profiling, runner recommendations, policy enforcement, and routed alerts via Slack, Teams, email, or webhooks." />
   <meta property="og:url" content="https://runright.dev/pages/install.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Install RunRight | CI Runner Right-Sizing Setup Guide" />
@@ -664,6 +664,10 @@ go run ./cmd/seed/ --url http://localhost:8080</pre>
               <tr><td><code>RUNRIGHT_VCPUS</code></td><td>CI agent (K8s)</td><td class="ip-ok">No</td><td>vCPU count for machine detection. Inject via Downward API when cgroup detection is unreliable.</td></tr>
               <tr><td><code>RUNRIGHT_MEMORY_GIB</code></td><td>CI agent (K8s)</td><td class="ip-ok">No</td><td>Memory limit in GiB for machine detection. Inject via Downward API. Overrides cgroup-based detection when set.</td></tr>
               <tr><td><code>OTEL_EXPORTER_OTLP_ENDPOINT</code></td><td>CI agent</td><td class="ip-ok">No</td><td>OTLP collector endpoint for the otlp export backend. Example: <code>http://localhost:4317</code></td></tr>
+              <tr><td><code>RUNRIGHT_SMTP_HOST</code></td><td>Server only</td><td class="ip-ok">No</td><td>SMTP server host and port for email alerts. Example: <code>smtp.example.com:587</code></td></tr>
+              <tr><td><code>RUNRIGHT_SMTP_USER</code></td><td>Server only</td><td class="ip-ok">No</td><td>SMTP username for authentication. Required if your SMTP server uses auth.</td></tr>
+              <tr><td><code>RUNRIGHT_SMTP_PASS</code></td><td>Server only</td><td class="ip-ok">No</td><td>SMTP password for authentication. Use a secret store in production.</td></tr>
+              <tr><td><code>RUNRIGHT_SMTP_FROM</code></td><td>Server only</td><td class="ip-ok">No</td><td>From address for email alerts. Example: <code>alerts@runright.io</code></td></tr>
             </tbody>
           </table>
         </div>

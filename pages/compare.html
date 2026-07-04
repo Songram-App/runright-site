@@ -120,41 +120,52 @@ Cost Tools</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Pipeline duration &amp; trends</td><td>&#10003;</td><td>&#10003;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#8212;</td></tr>
+          <tr><td>Pipeline duration &amp; trends</td><td>&#10003;</td><td>&#10003;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
           <tr><td>Error &amp; trace tracking</td><td>&#10003;</td><td>&#8212;</td><td>&#10003;</td><td>&#8212;</td><td class="col-rr">&#8212;</td></tr>
           <tr><td>Raw CPU / memory graphs</td><td>&#10003;</td><td>&#10003;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr check-other">&#10003;</td></tr>
-          <tr><td>Works on ephemeral CI machines</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>Maps usage to a specific instance SKU</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="partial">Partial</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>Recommends cheaper alternative + cost delta</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="partial">Partial</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Alert routing (Slack, Teams, email, webhooks)</td><td class="check-other">&#10003;</td><td class="check-other">&#10003;</td><td class="check-other">&#10003;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Self-hosted option</td><td>&#8212;</td><td class="check-other">&#10003;</td><td class="check-other">&#10003;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Works on ephemeral CI machines</td><td class="check-other">&#10003;</td><td class="partial">Partial</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Maps job usage to specific instance SKU</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="partial">Partial</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Recommends cheaper runner + cost delta</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="partial">Partial</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>CI-specific cost guardrails (max $/hr)</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
           <tr><td>Policy scope precedence (job &gt; repo &gt; global)</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>Slack destination routing for alerts</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>Server-side alert rule schema validation</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>No code changes needed</td><td>&#8212;</td><td class="check-other">&#10003;</td><td>&#8212;</td><td class="check-other">&#10003;</td><td class="col-rr">&#10003;</td></tr>
-          <tr><td>Self-hosted, no SaaS</td><td>&#8212;</td><td class="check-other">&#10003;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>Ownership-based alert routing</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td><td class="col-rr">&#10003;</td></tr>
+          <tr><td>No code changes needed</td><td class="check-other">&#10003;</td><td class="check-other">&#10003;</td><td>&#8212;</td><td class="check-other">&#10003;</td><td class="col-rr">&#10003;</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="cp-callout">
-      <div class="cp-callout-label">Why cloud-native tools miss CI machines</div>
+      <div class="cp-callout-label">Where RunRight fits alongside existing tools</div>
+      <p>
+        Datadog, Grafana, and Sentry are excellent at what they do &mdash; pipeline observability, alerting, and error tracking.
+        RunRight is <strong>complementary</strong>: it answers <em>&ldquo;which runner should I use?&rdquo;</em> and
+        <em>&ldquo;how much am I overpaying?&rdquo;</em> Use it alongside your existing stack via OTLP export &mdash;
+        you don&rsquo;t have to choose. RunRight focuses specifically on <strong>CI cost optimization</strong>
+        through real workload profiling and actionable recommendations.
+      </p>
+    </div>
+
+    <div class="cp-callout">
+      <div class="cp-callout-label">Why cloud cost tools miss CI machines</div>
       <p>
         AWS Cost Optimizer and GCP Recommender require weeks of utilization history on
         <strong>long-running instances</strong>. CI machines are <strong>ephemeral</strong> &mdash;
         they spin up, run a 5&ndash;30 minute job, then terminate. The cloud has no visibility into
         what your GitHub Actions runner or Jenkins agent actually did.
         RunRight captures the entire run in real time and produces a recommendation the
-        moment the job finishes. Use it alongside Datadog or Sentry via OTLP &mdash; you don&rsquo;t
-        have to choose.
+        moment the job finishes.
       </p>
     </div>
 
     <div class="cp-callout">
-      <div class="cp-callout-label">RunRight vs CloudZero: where each fits</div>
+      <div class="cp-callout-label">RunRight vs CloudZero</div>
       <p>
         CloudZero is strong for <strong>cost allocation and business-level cloud spend reporting</strong>.
         RunRight is built for <strong>CI execution decisions</strong>: right-size runners by real workload,
-        enforce max cost/hour policies per job/repository/global scope, and route alerts to Slack destinations.
-        Many teams use both: CloudZero for financial visibility, RunRight for CI cost control and operations response.
+        enforce max cost/hour policies per job/repository/global scope, and route alerts by team ownership.
+        Many teams use both: CloudZero for financial visibility, RunRight for CI cost control.
       </p>
     </div>
 
