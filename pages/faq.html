@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RunRight FAQ | Common Questions About CI Cost Optimization</title>
+  <meta name="description" content="Answers to common questions about RunRight: build performance, data privacy, Kubernetes support, RBAC, the AI assistant, and more." />
+  <link rel="canonical" href="https://runright.dev/pages/faq.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RunRight FAQ" />
+  <meta property="og:description" content="Common questions about RunRight: build impact, data privacy, RBAC, the AI assistant, and Kubernetes support." />
+  <meta property="og:url" content="https://runright.dev/pages/faq.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RunRight FAQ" />
+  <meta name="twitter:description" content="Answers to common questions about RunRight CI cost optimization." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <style>
+    .faq-root { display:flex; flex-direction:column; min-height:100vh; background:var(--lp-bg); color:var(--lp-text); }
+    .faq-hero { text-align:center; padding:72px 48px 56px; border-bottom:1px solid var(--lp-border); }
+    .faq-eyebrow { font-family:'Bebas Neue',Impact,sans-serif; font-size:12px; letter-spacing:5px; color:#9A7B5A; margin:0 0 20px; }
+    .faq-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(32px,5vw,52px); font-weight:900; color:var(--lp-text); line-height:1.1; margin:0 0 16px; letter-spacing:-0.5px; }
+    .faq-sub { font-size:17px; color:var(--lp-text-mid); max-width:520px; margin:0 auto; line-height:1.8; }
+
+    .faq-content { flex:1; max-width:760px; width:100%; margin:64px auto; padding:0 48px; }
+
+    .faq-group { margin-bottom:48px; }
+    .faq-group-label {
+      font-family:'Bebas Neue',Impact,sans-serif;
+      font-size:11px; letter-spacing:4px; color:#C23B22;
+      border-bottom:2px solid #C23B22;
+      padding-bottom:8px; margin-bottom:0;
+    }
+
+    .faq-item { padding:22px 0; border-bottom:1px solid var(--lp-border); }
+    .faq-item:last-child { border-bottom:none; }
+    .faq-q { font-weight:700; font-size:15px; color:var(--lp-text); margin-bottom:8px; line-height:1.5; }
+    .faq-a { font-size:14px; color:var(--lp-text-mid); line-height:1.85; margin:0; }
+    .faq-a code { font-family:monospace; background:var(--lp-paper); border:1px solid var(--lp-border); padding:1px 5px; font-size:12px; }
+    .faq-a a { color:inherit; text-decoration:underline; }
+
+    .faq-cta { text-align:center; padding:16px 0 8px; }
+    .faq-cta-btn { display:inline-block; background:#C23B22; color:#FBF0DC; border:none; padding:13px 40px; font-family:'Bebas Neue',Impact,sans-serif; font-size:16px; letter-spacing:3px; cursor:pointer; text-decoration:none; box-shadow:4px 4px 0 rgba(92,58,30,.18); transition:background .15s,transform .08s; }
+    .faq-cta-btn:hover { background:#9B2D17; transform:translate(2px,2px); }
+
+    .faq-footer { border-top:1px solid var(--lp-border); padding:20px 48px; display:flex; justify-content:space-between; align-items:center; font-family:'Bebas Neue',Impact,sans-serif; font-size:11px; letter-spacing:2px; color:var(--lp-text-light); }
+    .faq-footer-link { color:var(--lp-text-light); text-decoration:none; transition:color .12s; }
+    .faq-footer-link:hover { color:var(--lp-text); }
+
+    @media (max-width:768px) {
+      .faq-hero { padding:48px 24px 40px; }
+      .faq-content { padding:0 20px; margin:40px auto; }
+      .faq-footer { padding:16px 20px; flex-direction:column; gap:10px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+<div class="lp-root faq-root" id="root">
+
+  <nav class="pnav">
+    <a href="../index.html" class="pnav-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="12" x2="6.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="12" x2="17.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="12" x2="17.2" y2="7.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+      RUNRIGHT
+    </a>
+    <div class="pnav-right">
+      <a href="compare.html" class="pnav-link pnav-hide-mobile">Compare</a>
+      <a href="pricing.html" class="pnav-link pnav-hide-mobile">Pricing</a>
+      <a href="install.html" class="pnav-link pnav-hide-mobile">Docs</a>
+      <a href="faq.html" class="pnav-link pnav-hide-mobile" aria-current="page">FAQ</a>
+      <a href="https://github.com/gbudjeakp/run-right" class="pnav-link pnav-hide-mobile pnav-github" aria-label="GitHub repository" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+      </a>
+      <button class="pnav-theme" id="dark-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="pnav-hamburger" id="pnav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+    <div class="pnav-mobile" id="pnav-mobile" aria-hidden="true">
+      <a href="compare.html" class="pnav-mobile-link">Compare</a>
+      <a href="pricing.html" class="pnav-mobile-link">Pricing</a>
+      <a href="install.html" class="pnav-mobile-link">Docs</a>
+      <a href="faq.html" class="pnav-mobile-link">FAQ</a>
+      <a href="https://github.com/gbudjeakp/run-right" class="pnav-mobile-link" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="faq-hero">
+    <p class="faq-eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+    <h1 class="faq-title">Quick answers.</h1>
+    <p class="faq-sub">Everything you need to know before installing RunRight in your CI pipeline.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="faq-content">
+
+    <!-- Performance -->
+    <div class="faq-group">
+      <div class="faq-group-label">PERFORMANCE &amp; INTEGRATION</div>
+      <div class="faq-item">
+        <div class="faq-q">Does RunRight slow down my builds?</div>
+        <p class="faq-a">No. It polls <code>/proc</code> every 5&nbsp;s as a background sidecar. Under 5&nbsp;MB RSS, under 0.1% CPU on the sampler. Your build time is not affected.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to change my application code?</div>
+        <p class="faq-a">No. RunRight wraps your existing CI step. No SDK, no annotations, no config file required.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I already use Datadog. Do I need the RunRight backend?</div>
+        <p class="faq-a">No. Use <code>--export otlp</code> with <code>OTEL_EXPORTER_OTLP_ENDPOINT</code> pointing at your existing collector. The backend and Postgres are only needed for the self-hosted RunRight dashboard.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does RunRight work with Kubernetes runners and DinD pods?</div>
+        <p class="faq-a">Yes. RunRight reads cgroup v2 (<code>cpu.max</code>, <code>memory.max</code>) or cgroup v1 equivalents to reflect the pod's actual CPU quota and memory limit. You can also pass <code>RUNRIGHT_VCPUS</code> and <code>RUNRIGHT_MEMORY_GIB</code> via the Kubernetes Downward API if you prefer explicit values.</p>
+      </div>
+    </div>
+
+    <!-- Privacy & Data -->
+    <div class="faq-group">
+      <div class="faq-group-label">PRIVACY &amp; DATA</div>
+      <div class="faq-item">
+        <div class="faq-q">What data does RunRight collect?</div>
+        <p class="faq-a">RunRight samples system-level metrics from your CI runner: CPU usage, memory (RSS), disk I/O, network I/O, and thread count. These are written to your workflow artifacts and stay on your infrastructure. Nothing is sent to RunRight's servers. If you configure <code>--export otlp</code> or <code>--export http</code>, metrics go to a destination you specify.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does the AI assistant send my CI data to an external service?</div>
+        <p class="faq-a">No. The AI assistant runs entirely on your infrastructure. Point it at a local <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> instance or any OpenAI-compatible endpoint you control. Your job history, cost data, and telemetry never leave your servers.</p>
+      </div>
+    </div>
+
+    <!-- Access Control -->
+    <div class="faq-group">
+      <div class="faq-group-label">ACCESS CONTROL &amp; TEAM MANAGEMENT</div>
+      <div class="faq-item">
+        <div class="faq-q">How do I control who can change policies or alert rules?</div>
+        <p class="faq-a">Use the built-in role system under Settings &rarr; Roles &amp; Permissions. Assign Owner, Admin, Billing, Developer, or Viewer roles to any SSO user from the dashboard. Custom roles let you combine any set of the eight permission scopes &mdash; no restart required to apply changes.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What SSO providers does RunRight support?</div>
+        <p class="faq-a">Google Workspace, GitHub OAuth, Azure AD (Microsoft Entra ID), Okta, any generic OIDC provider, and enterprise SAML 2.0. SSO is configured entirely from the dashboard &mdash; no config file changes or restarts required.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there an audit log for changes made in the dashboard?</div>
+        <p class="faq-a">Yes. Every create, update, and delete action is recorded with the actor's email, timestamp, and a diff of changed fields. Alert rule changes are tracked at the individual rule level &mdash; modifying one rule doesn't produce audit noise for unchanged rules.</p>
+      </div>
+    </div>
+
+    <!-- Deployment -->
+    <div class="faq-group">
+      <div class="faq-group-label">DEPLOYMENT &amp; SELF-HOSTING</div>
+      <div class="faq-item">
+        <div class="faq-q">What does the RunRight backend require?</div>
+        <p class="faq-a">A Go binary and a Postgres database. The included Docker Compose file brings everything up in one command. No cloud account, no managed service, no external dependencies beyond what you run yourself.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I deploy RunRight on Kubernetes?</div>
+        <p class="faq-a">Yes. The <code>helm/</code> directory in the repository includes a Helm chart for deploying the backend and connecting it to an existing Postgres instance. A prebuilt container image is available on Docker Hub.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a cloud-hosted version?</div>
+        <p class="faq-a">Not currently. RunRight is self-hosted only. This keeps your telemetry on your infrastructure and eliminates per-seat or usage-based pricing. See the <a href="pricing.html">pricing page</a> for details.</p>
+      </div>
+    </div>
+
+    <div class="faq-cta">
+      <a href="install.html" class="faq-cta-btn">Open Install Guide &rarr;</a>
+    </div>
+
+  </div>
+
+  <footer class="faq-footer">
+    <span style="display:flex;align-items:center;gap:8px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="12" x2="6.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="12" x2="17.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="12" x2="17.2" y2="7.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+      RUNRIGHT
+    </span>
+    <a href="pricing.html" class="faq-footer-link">Pricing</a>
+    <a href="compare.html" class="faq-footer-link">Compare</a>
+    <a href="../index.html" class="faq-footer-link">Back to home</a>
+  </footer>
+
+</div>
+
+<script>
+  // ── Mobile nav menu ──
+  const navEl = document.querySelector('.pnav');
+  const hamburger = document.getElementById('pnav-hamburger');
+  const mobileMenu = document.getElementById('pnav-mobile');
+  if (hamburger && mobileMenu && navEl) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navEl.classList.toggle('pnav-open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+    });
+    document.addEventListener('click', (e) => {
+      if (navEl.classList.contains('pnav-open') && !navEl.contains(e.target)) {
+        navEl.classList.remove('pnav-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  const root = document.getElementById('root');
+  if (localStorage.getItem('rr-dark') === 'true') applyDark(true);
+  document.getElementById('dark-toggle').addEventListener('click', () => {
+    const next = !root.classList.contains('lp-dark');
+    applyDark(next);
+    localStorage.setItem('rr-dark', String(next));
+  });
+  function applyDark(on) {
+    root.classList.toggle('lp-dark', on);
+    document.getElementById('icon-moon').style.display = on ? 'none' : '';
+    document.getElementById('icon-sun').style.display  = on ? '' : 'none';
+  }
+</script>
+</body>
+</html>
