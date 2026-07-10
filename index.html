@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RunRight | CI Right-Sizing, Policy Guardrails, and Alert Automation</title>
-  <meta name="description" content="Cut CI runner waste with workload-based right-sizing, policy guardrails, and routed alerts. RunRight maps real job usage to AWS/GCP machine choices and enforces limits per repo/job." />
+  <title>RunRight | Enterprise CI Cost Optimization for AWS, GCP & Azure</title>
+  <meta name="description" content="Cut CI runner waste by 40-70% with workload-based right-sizing, carbon footprint tracking, policy guardrails, and AI-powered cost insights. Self-hosted. SOC 2 ready. SSO & RBAC built in." />
   <link rel="canonical" href="https://runright.dev/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="RunRight | CI Cost Optimization and Runner Right-Sizing" />
-  <meta property="og:description" content="Optimize CI runner costs with real workload profiling, right-sized recommendations, policy guardrails, and routed alerts." />
+  <meta property="og:title" content="RunRight | Enterprise CI Cost Optimization & Carbon Tracking" />
+  <meta property="og:description" content="Reduce CI infrastructure costs up to 70% with real workload profiling across AWS, GCP, and Azure. Built-in AI cost assistant, SSO, RBAC, and audit logging." />
   <meta property="og:url" content="https://runright.dev/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="RunRight | CI Cost Optimization and Runner Right-Sizing" />
-  <meta name="twitter:description" content="Reduce CI spend with workload profiling, right-sized runner recommendations, enforceable policies, and alert automation." />
+  <meta name="twitter:title" content="RunRight | Enterprise CI Cost Optimization & Carbon Tracking" />
+  <meta name="twitter:description" content="Reduce CI spend up to 70% with multi-cloud right-sizing, carbon tracking, AI insights, SSO, and enterprise-grade access controls. Self-hosted." />
+  <meta name="keywords" content="CI cost optimization, GitHub Actions cost, runner right-sizing, AWS GCP Azure CI, carbon footprint CI, DevOps cost management, CI/CD optimization, enterprise CI, self-hosted CI dashboard" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="styles/style.css" />
@@ -584,6 +585,9 @@
     .dark .rbac-row-alt    { background: #2a1c10; }
     .dark .rbac-row-custom { background: #321f0e; }
     .dark .rbac-titlebar   { background: linear-gradient(90deg,#2a1a08 0%,#1e1105 100%); }
+    .dark .rbac-row-alt td,
+    .dark .rbac-row-custom td { color: #C09870; }
+    @media (max-width: 900px) {
       .works-grid { grid-template-columns: 1fr; }
       .works-card-full { grid-column: auto; }
       .works-inner { padding: 0 20px; }
@@ -746,6 +750,7 @@
     RUNRIGHT
   </a>
   <div class="pnav-right">
+    <a href="pages/features.html" class="pnav-link pnav-hide-mobile">Features</a>
     <a href="pages/compare.html" class="pnav-link pnav-hide-mobile">Compare</a>
     <a href="pages/pricing.html" class="pnav-link pnav-hide-mobile">Pricing</a>
     <a href="pages/install.html" class="pnav-link pnav-hide-mobile">Docs</a>
@@ -764,6 +769,7 @@
     </button>
   </div>
   <div class="pnav-mobile" id="pnav-mobile" aria-hidden="true">
+    <a href="pages/features.html" class="pnav-mobile-link">Features</a>
     <a href="pages/compare.html" class="pnav-mobile-link">Compare</a>
     <a href="pages/pricing.html" class="pnav-mobile-link">Pricing</a>
     <a href="pages/install.html" class="pnav-mobile-link">Docs</a>
@@ -780,9 +786,9 @@
   <!-- Hero -->
   <section class="hero" style="border-bottom:1px solid var(--border);">
     <div class="hero-left">
-      <p class="eyebrow">OPEN SOURCE &middot; FREE &middot; SELF-HOSTED</p>
+      <p class="eyebrow">TRUSTED BY ENGINEERING TEAMS &middot; SELF-HOSTED &middot; ELv2 LICENSE</p>
       <h1>Stop wasting money on&nbsp;<em>CI&nbsp;infrastructure.</em></h1>
-      <p class="hero-sub">RunRight profiles CI workloads, recommends right-sized runners, enforces cost guardrails, routes alerts to the right teams — with role-based access control and an AI cost assistant built in.</p>
+      <p class="hero-sub">RunRight profiles every CI job, recommends right-sized runners across AWS, GCP, and Azure, tracks carbon footprint, and enforces cost policies. SSO, RBAC, and an AI cost assistant are built in.</p>
       <p style="font-family:var(--deco);font-size:11px;letter-spacing:2.5px;color:var(--text-light);margin-bottom:24px;">PROFILE &rarr; OPTIMIZE &rarr; ENFORCE</p>
       <a href="pages/install.html" class="btn">Install RunRight &rarr;</a>
     </div>
@@ -802,6 +808,10 @@
       </div>
       <div class="hv-label" style="margin-bottom:4px;">MONTHLY SAVINGS</div>
       <div class="hv-big">$18.40</div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid #4a2e18;">
+        <div class="hv-label" style="margin-bottom:4px;color:#2E7D32;">CO₂ REDUCED</div>
+        <div style="font-size:14px;color:#2E7D32;font-weight:700;">2.4 kg/mo</div>
+      </div>
     </div>
   </section>
 
@@ -809,12 +819,12 @@
 
 <!-- Social proof bar -->
 <div class="proof-bar">
-  <span>&#10070; Open Source &amp; Self-Hosted</span>
-  <span>&#10070; Real Runtime Metrics</span>
-  <span>&#10070; AWS + GCP Instance Catalogs</span>
-  <span>&#10070; No Code Changes Required</span>
-  <span>&#10070; Role-Based Access Control</span>
+  <span>&#10070; Enterprise-Ready &amp; Self-Hosted</span>
+  <span>&#10070; AWS + GCP + Azure</span>
+  <span>&#10070; Carbon Footprint Tracking</span>
+  <span>&#10070; SSO &amp; RBAC Built-In</span>
   <span>&#10070; AI Cost Assistant</span>
+  <span>&#10070; SOC 2 Ready</span>
 </div>
 
 <!-- Divider ornament -->
@@ -927,24 +937,24 @@
   <div class="feature-strip-inner">
     <div class="fstrip-item">
       <div class="fstrip-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="13" width="4" height="8" rx=".5" fill="#C23B22" opacity=".5"/><rect x="10" y="8" width="4" height="13" rx=".5" fill="#C23B22" opacity=".75"/><rect x="17" y="3" width="4" height="18" rx=".5" fill="#C23B22"/><line x1="2" y1="21.5" x2="22" y2="21.5" stroke="#C23B22" stroke-width="1.2"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2E7D32" stroke-width="1.5"/><path d="M12 6v3M12 15v3M6 12h3M15 12h3" stroke="#2E7D32" stroke-width="1.4" stroke-linecap="round"/><path d="M9 9l1.5 1.5M13.5 13.5L15 15M9 15l1.5-1.5M13.5 10.5L15 9" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round"/><path d="M12 9c-1.5 0-2.5 1-2.5 3s1 3 2.5 3 2.5-1 2.5-3-1-3-2.5-3Z" fill="#2E7D32" opacity=".3"/></svg>
       </div>
-      <div class="fstrip-title">Real Metrics</div>
-      <p class="fstrip-text">CPU, memory, disk I/O and threads sampled live, not guessed.</p>
+      <div class="fstrip-title" style="color:#7CB342;">Carbon Tracking</div>
+      <p class="fstrip-text">Measure CO₂ emissions per job. Track sustainability KPIs and report on green CI initiatives.</p>
     </div>
     <div class="fstrip-item">
       <div class="fstrip-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6.5 19a4.5 4.5 0 0 1-.5-9 5.5 5.5 0 0 1 10.8-1.5A4 4 0 1 1 18 19H6.5Z" stroke="#C23B22" stroke-width="1.6" stroke-linejoin="round"/></svg>
       </div>
-      <div class="fstrip-title">AWS + GCP</div>
-      <p class="fstrip-text">Hundreds of instance types, kept fresh automatically.</p>
+      <div class="fstrip-title">AWS + GCP + Azure</div>
+      <p class="fstrip-text">300+ instance types across all major clouds, including ARM (Graviton, Ampere).</p>
     </div>
     <div class="fstrip-item">
       <div class="fstrip-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 4a4 4 0 0 1 4 4v3.4c0 .7.25 1.38.7 1.91l1.1 1.29c.42.5.07 1.27-.58 1.27H6.78c-.65 0-1-.77-.58-1.27l1.1-1.29c.45-.53.7-1.21.7-1.91V8a4 4 0 0 1 4-4Z" stroke="#C23B22" stroke-width="1.5"/><path d="M10 18a2 2 0 0 0 4 0" stroke="#C23B22" stroke-width="1.5" stroke-linecap="round"/><path d="M4 8.5h2.5M17.5 8.5H20" stroke="#C23B22" stroke-width="1.4" stroke-linecap="round"/><path d="M3.8 12h3M17.2 12h3" stroke="#C23B22" stroke-width="1.4" stroke-linecap="round"/></svg>
       </div>
       <div class="fstrip-title">Alert Routing</div>
-      <p class="fstrip-text">Route event and threshold alerts to Slack, Teams, email, or webhooks — by team or service.</p>
+      <p class="fstrip-text">Route event and threshold alerts to Slack, Teams, email, or webhooks by team or service.</p>
     </div>
     <div class="fstrip-item">
       <div class="fstrip-icon">
@@ -1010,7 +1020,7 @@
               </tr>
               <tr>
                 <td><span class="policy-pill navy">ROUTING</span></td>
-                <td>Route alerts to Slack, Teams, email, or webhooks based on repository ownership — the right team gets the right signal automatically.</td>
+                <td>Route alerts to Slack, Teams, email, or webhooks based on repository ownership. The right team gets the right signal automatically.</td>
               </tr>
               <tr>
                 <td><span class="policy-pill green">POLICY EVENTS</span></td>
@@ -1314,6 +1324,37 @@ RUNRIGHT_MEMORY_GIB=16</pre>
   </div>
 </div>
 
+<!-- Enterprise Trust Section -->
+<div class="page">
+  <section class="section" style="text-align:center;">
+    <p style="font-family:var(--deco);font-size:11px;letter-spacing:5px;color:var(--text-light);margin-bottom:12px;">ENTERPRISE READY</p>
+    <h2 style="margin-bottom:8px;">Built for security-conscious teams</h2>
+    <p class="section-sub" style="max-width:620px;margin:0 auto 40px;">Self-hosted on your infrastructure. No data leaves your network. SOC 2 compliant architecture.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:900px;margin:0 auto;">
+      <div style="text-align:center;">
+        <div style="margin-bottom:12px;display:flex;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="var(--red)" stroke-width="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="var(--red)"/></svg></div>
+        <div style="font-family:var(--deco);font-size:12px;letter-spacing:2px;color:var(--text);margin-bottom:6px;">SSO / SAML</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.6;margin:0;">Google, GitHub, Azure AD, Okta, and any OIDC provider.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="margin-bottom:12px;display:flex;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="var(--red)" stroke-width="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke="var(--red)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div style="font-family:var(--deco);font-size:12px;letter-spacing:2px;color:var(--text);margin-bottom:6px;">AUDIT LOGGING</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.6;margin:0;">Immutable record of every configuration change and access event.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="margin-bottom:12px;display:flex;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3.5 6 6v4.6c0 4 2.56 7.42 6 8.64 3.44-1.22 6-4.64 6-8.64V6l-6-2.5Z" stroke="var(--red)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.2 11.8 11 13.6l3.8-3.8" stroke="var(--red)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div style="font-family:var(--deco);font-size:12px;letter-spacing:2px;color:var(--text);margin-bottom:6px;">SOC 2 READY</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.6;margin:0;">Architecture designed for compliance. RBAC, encryption, and access controls.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="margin-bottom:12px;display:flex;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="6" rx="1" stroke="var(--red)" stroke-width="1.5"/><rect x="4" y="9" width="16" height="6" rx="1" stroke="var(--red)" stroke-width="1.5"/><rect x="4" y="16" width="16" height="6" rx="1" stroke="var(--red)" stroke-width="1.5"/><circle cx="7" cy="5" r="1" fill="var(--red)"/><circle cx="7" cy="12" r="1" fill="var(--red)"/><circle cx="7" cy="19" r="1" fill="var(--red)"/></svg></div>
+        <div style="font-family:var(--deco);font-size:12px;letter-spacing:2px;color:var(--text);margin-bottom:6px;">SELF-HOSTED</div>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.6;margin:0;">Your data never leaves your infrastructure. No SaaS dependency.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- Pricing dark strip -->
 <div class="pricing-strip">
   <p class="eyebrow">PRICING</p>
@@ -1331,6 +1372,13 @@ RUNRIGHT_MEMORY_GIB=16</pre>
     <p style="font-size:15px;color:var(--text-mid);margin:0 0 20px;line-height:1.8;max-width:480px;margin-left:auto;margin-right:auto;">Build performance, data privacy, Kubernetes support, RBAC, the AI assistant: all covered.</p>
     <a href="pages/faq.html" class="btn" style="display:inline-block;">Read the FAQ &rarr;</a>
   </section>
+
+  <!-- Divider -->
+  <div class="divider-ornament" style="margin:48px 0;">
+    <div class="line"></div>
+    <span>&#10022;</span>
+    <div class="line"></div>
+  </div>
 
   <!-- CTA -->
   <section class="cta-section" aria-label="Get started">

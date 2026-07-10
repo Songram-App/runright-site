@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RunRight Features | GPU Monitoring, Container Metrics, Egress Costs & More</title>
+  <meta name="description" content="Explore RunRight's full feature set: GPU monitoring, container breakdown, build cache analysis, egress cost estimation, AI assistant, carbon tracking, and enterprise-grade RBAC with SSO." />
+  <link rel="canonical" href="https://runright.dev/pages/features.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RunRight Features | Complete CI Cost Optimization Platform" />
+  <meta property="og:description" content="GPU monitoring, container metrics, cache analysis, egress costs, AI assistant, carbon footprint tracking, and enterprise auth. All self-hosted." />
+  <meta property="og:url" content="https://runright.dev/pages/features.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RunRight Features" />
+  <meta name="twitter:description" content="Comprehensive CI cost optimization with GPU monitoring, container breakdown, egress estimation, and AI-powered insights." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <style>
+    .feat-root { display:flex; flex-direction:column; min-height:100vh; background:var(--lp-bg); color:var(--lp-text); font-family:'Lato',system-ui,sans-serif; }
+    .feat-hero { text-align:center; padding:72px 48px 56px; border-bottom:1px solid var(--lp-border); }
+    .feat-eyebrow { font-family:'Bebas Neue',Impact,sans-serif; font-size:12px; letter-spacing:5px; color:#9A7B5A; margin:0 0 20px; }
+    .feat-title { font-family:'Playfair Display',Georgia,serif; font-size:clamp(36px,5vw,56px); font-weight:900; color:var(--lp-text); line-height:1.1; margin:0 0 20px; letter-spacing:-0.5px; }
+    .feat-sub { font-size:17px; color:var(--lp-text-mid); max-width:640px; margin:0 auto; line-height:1.8; }
+    .feat-content { flex:1; max-width:1100px; width:100%; margin:0 auto; padding:64px 48px; }
+    
+    /* Category sections */
+    .feat-category { margin-bottom:72px; }
+    .feat-cat-header { display:flex; align-items:center; gap:16px; margin-bottom:32px; }
+    .feat-cat-icon { width:48px; height:48px; background:rgba(194,59,34,.08); border-radius:8px; display:flex; align-items:center; justify-content:center; }
+    .feat-cat-icon svg { width:24px; height:24px; color:#C23B22; }
+    .feat-cat-title { font-family:'Bebas Neue',Impact,sans-serif; font-size:28px; letter-spacing:3px; color:var(--lp-text); margin:0; }
+    .feat-cat-desc { font-size:15px; color:var(--lp-text-mid); line-height:1.75; max-width:720px; margin:0 0 28px; }
+    
+    /* Feature grid */
+    .feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; }
+    .feat-card { background:var(--lp-paper); border:1px solid var(--lp-border); padding:28px; box-shadow:4px 4px 0 rgba(92,58,30,.08); transition:transform .12s,box-shadow .12s; }
+    .feat-card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 rgba(92,58,30,.12); }
+    .feat-card-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:14px; }
+    .feat-card-title { font-family:'Playfair Display',Georgia,serif; font-weight:700; font-size:18px; color:var(--lp-text); margin:0; }
+    .feat-badge { font-family:'Bebas Neue',Impact,sans-serif; font-size:9px; letter-spacing:1.5px; padding:3px 8px; border:1px solid; border-radius:2px; white-space:nowrap; }
+    .badge-new { color:#2E7D32; border-color:#2E7D32; background:rgba(46,125,50,.06); }
+    .badge-enterprise { color:#1B3361; border-color:#1B3361; background:rgba(27,51,97,.06); }
+    .badge-core { color:#9A7B5A; border-color:#9A7B5A; background:rgba(154,123,90,.06); }
+    .feat-card-text { font-size:14px; color:var(--lp-text-mid); line-height:1.8; margin:0; }
+    .feat-card-list { margin:12px 0 0; padding-left:18px; }
+    .feat-card-list li { font-size:13px; color:var(--lp-text-mid); line-height:1.7; margin-bottom:4px; }
+    
+    /* Highlight strip */
+    .feat-highlight { background:#2C1A0E; padding:56px 48px; margin:0 -48px 64px; }
+    .feat-highlight-inner { max-width:1100px; margin:0 auto; }
+    .feat-highlight-title { font-family:'Bebas Neue',Impact,sans-serif; font-size:14px; letter-spacing:4px; color:#9A7B5A; text-align:center; margin:0 0 32px; }
+    .feat-highlight-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center; }
+    .feat-highlight-item { }
+    .feat-highlight-num { font-family:'Playfair Display',Georgia,serif; font-size:42px; font-weight:900; color:#FBF0DC; line-height:1; margin-bottom:8px; }
+    .feat-highlight-label { font-family:'Bebas Neue',Impact,sans-serif; font-size:11px; letter-spacing:2px; color:rgba(251,240,220,.6); }
+    
+    /* CTA */
+    .feat-cta { text-align:center; padding:48px 0 16px; border-top:1px solid var(--lp-border); margin-top:32px; }
+    .feat-cta-btn { display:inline-block; background:#C23B22; color:#FBF0DC; border:none; padding:14px 44px; font-family:'Bebas Neue',Impact,sans-serif; font-size:16px; letter-spacing:3px; cursor:pointer; text-decoration:none; box-shadow:4px 4px 0 rgba(92,58,30,.18); transition:background .15s,transform .08s; }
+    .feat-cta-btn:hover { background:#9B2D17; transform:translate(2px,2px); }
+    
+    /* Footer */
+    .feat-footer { border-top:1px solid var(--lp-border); padding:20px 48px; display:flex; justify-content:space-between; align-items:center; font-family:'Bebas Neue',Impact,sans-serif; font-size:11px; letter-spacing:2px; color:var(--lp-text-light); }
+    .feat-footer-link { color:var(--lp-text-light); text-decoration:none; transition:color .12s; }
+    .feat-footer-link:hover { color:var(--lp-text); }
+    
+    @media (max-width:900px) {
+      .feat-highlight-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:768px) {
+      .feat-hero { padding:48px 24px 40px; }
+      .feat-content { padding:40px 20px; }
+      .feat-highlight { margin:0 -20px 48px; padding:40px 20px; }
+      .feat-grid { grid-template-columns:1fr; }
+      .feat-footer { padding:16px 20px; flex-direction:column; gap:10px; text-align:center; }
+    }
+    @media (max-width:480px) {
+      .feat-highlight-grid { grid-template-columns:1fr 1fr; gap:24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="lp-root feat-root" id="root">
+
+  <nav class="pnav">
+    <a href="../index.html" class="pnav-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="12" x2="6.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="12" x2="17.5" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="12" x2="17.2" y2="7.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+      RUNRIGHT
+    </a>
+    <div class="pnav-right">
+      <a href="features.html" class="pnav-link pnav-hide-mobile">Features</a>
+      <a href="compare.html" class="pnav-link pnav-hide-mobile">Compare</a>
+      <a href="pricing.html" class="pnav-link pnav-hide-mobile">Pricing</a>
+      <a href="install.html" class="pnav-link pnav-hide-mobile">Docs</a>
+      <a href="faq.html" class="pnav-link pnav-hide-mobile">FAQ</a>
+      <a href="https://github.com/gbudjeakp/run-right" class="pnav-link pnav-hide-mobile pnav-github" aria-label="GitHub repository" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+      </a>
+      <button class="pnav-theme" id="dark-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="pnav-hamburger" id="pnav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+    <div class="pnav-mobile" id="pnav-mobile" aria-hidden="true">
+      <a href="features.html" class="pnav-mobile-link">Features</a>
+      <a href="compare.html" class="pnav-mobile-link">Compare</a>
+      <a href="pricing.html" class="pnav-mobile-link">Pricing</a>
+      <a href="install.html" class="pnav-mobile-link">Docs</a>
+      <a href="faq.html" class="pnav-mobile-link">FAQ</a>
+      <a href="https://github.com/gbudjeakp/run-right" class="pnav-mobile-link" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <section class="feat-hero">
+    <p class="feat-eyebrow">PLATFORM CAPABILITIES</p>
+    <h1 class="feat-title">Everything you need to optimize CI costs.</h1>
+    <p class="feat-sub">From workload profiling to GPU monitoring, cache analysis to egress estimation. RunRight gives you complete visibility into CI infrastructure spend.</p>
+  </section>
+
+  <div class="feat-content">
+
+    <!-- Workload Intelligence -->
+    <div class="feat-category">
+      <div class="feat-cat-header">
+        <div class="feat-cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h2 class="feat-cat-title">WORKLOAD INTELLIGENCE</h2>
+      </div>
+      <p class="feat-cat-desc">Understand exactly how your CI jobs consume resources. RunRight profiles every run to build accurate baselines and recommend right-sized infrastructure.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Real-Time Profiling</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">Sample CPU, memory, disk I/O, and thread counts throughout every CI run. Build p95 baselines that reflect actual workload behavior, not guesses.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">GPU Monitoring</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">Track NVIDIA GPU utilization, memory, and power draw for ML/AI workloads. Identify idle or underutilized GPU time and right-size GPU instances.</p>
+          <ul class="feat-card-list">
+            <li>nvidia-smi integration</li>
+            <li>Per-sample utilization tracking</li>
+            <li>Idle GPU detection</li>
+          </ul>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Container Breakdown</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">See resource consumption per container in multi-container workflows. Identify which services consume the most CPU and memory.</p>
+          <ul class="feat-card-list">
+            <li>Docker stats integration</li>
+            <li>cgroup v1/v2 parsing</li>
+            <li>Top consumer identification</li>
+          </ul>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Build Cache Analysis</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">Estimate cache hit rates for Docker layers, npm, Go modules, Maven, and Gradle. Detect GitHub Actions cache usage and identify optimization opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost Visibility -->
+    <div class="feat-category">
+      <div class="feat-cat-header">
+        <div class="feat-cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10h8M8 14h8"/></svg>
+        </div>
+        <h2 class="feat-cat-title">COST VISIBILITY</h2>
+      </div>
+      <p class="feat-cat-desc">Know exactly where your CI spend goes. Track costs across clouds, estimate egress, and get actionable recommendations—not just charts.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Multi-Cloud Recommendations</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">300+ instance types across AWS, GCP, and Azure. Includes ARM instances (Graviton, Ampere) and spot pricing. Each recommendation shows cost delta and tier label.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Egress Cost Estimation</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">Tiered pricing models for AWS, GCP, Azure, and GitHub. Estimate monthly network egress costs and get caching recommendations to reduce transfer waste.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Run History & Comparison</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">Track every run with full metrics history. Compare any two runs side-by-side with delta analysis for CPU, memory, duration, cost, and carbon.</p>
+          <ul class="feat-card-list">
+            <li>Local SQLite history (no platform needed)</li>
+            <li>Multi-run comparison</li>
+            <li>Auto-generated insights</li>
+          </ul>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">AI Cost Assistant</h3>
+            <span class="feat-badge badge-enterprise">PLATFORM</span>
+          </div>
+          <p class="feat-card-text">Ask your job history anything in natural language. Get insights on spending patterns, optimization opportunities, and trend analysis.</p>
+          <ul class="feat-card-list">
+            <li>OpenAI or Anthropic backend</li>
+            <li>Self-hosted Ollama support</li>
+            <li>Conversation persistence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlight strip -->
+    <div class="feat-highlight">
+      <div class="feat-highlight-inner">
+        <p class="feat-highlight-title">BY THE NUMBERS</p>
+        <div class="feat-highlight-grid">
+          <div class="feat-highlight-item">
+            <div class="feat-highlight-num">300+</div>
+            <div class="feat-highlight-label">INSTANCE TYPES</div>
+          </div>
+          <div class="feat-highlight-item">
+            <div class="feat-highlight-num">3</div>
+            <div class="feat-highlight-label">CLOUD PROVIDERS</div>
+          </div>
+          <div class="feat-highlight-item">
+            <div class="feat-highlight-num">6</div>
+            <div class="feat-highlight-label">SSO PROVIDERS</div>
+          </div>
+          <div class="feat-highlight-item">
+            <div class="feat-highlight-num">8</div>
+            <div class="feat-highlight-label">PERMISSION SCOPES</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sustainability -->
+    <div class="feat-category">
+      <div class="feat-cat-header">
+        <div class="feat-cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 6v3M12 15v3M6 12h3M15 12h3"/><path d="M9 9l1.5 1.5M13.5 13.5L15 15M9 15l1.5-1.5M13.5 10.5L15 9"/></svg>
+        </div>
+        <h2 class="feat-cat-title">SUSTAINABILITY</h2>
+      </div>
+      <p class="feat-cat-desc">Track the environmental impact of your CI infrastructure. Measure CO₂ emissions and report on green initiatives.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Carbon Footprint Tracking</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">Calculate CO₂ emissions per job using provider-specific emission factors (AWS: 0.417, GCP: 0.180, Azure: 0.350 kg CO₂/kWh). Track total emissions and saveable carbon.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Sustainability KPIs</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">Report carbon metrics in relatable terms: tree days equivalent, car miles avoided. Build the case for green CI initiatives with concrete data.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Governance & Automation -->
+    <div class="feat-category">
+      <div class="feat-cat-header">
+        <div class="feat-cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3.5 6 6v4.6c0 4 2.56 7.42 6 8.64 3.44-1.22 6-4.64 6-8.64V6l-6-2.5Z"/><path d="M9.2 11.8 11 13.6l3.8-3.8"/></svg>
+        </div>
+        <h2 class="feat-cat-title">GOVERNANCE & AUTOMATION</h2>
+      </div>
+      <p class="feat-cat-desc">Set guardrails, enforce policies, and route alerts to the right teams automatically.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Policy Automation</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">Set max cost/hour guardrails at global, repository, or job scope. Policies cascade with job-level overrides. Fail CI automatically when thresholds are exceeded.</p>
+          <ul class="feat-card-list">
+            <li><code>--fail-if-oversized N</code> exit codes</li>
+            <li><code>--max-cost-per-hour N</code> limits</li>
+            <li>Scope precedence: job &gt; repo &gt; global</li>
+          </ul>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Alert Routing</h3>
+            <span class="feat-badge badge-core">CORE</span>
+          </div>
+          <p class="feat-card-text">Route cost threshold violations, waste alerts, and savings regressions to Slack, Teams, email, or webhooks. Team-based routing ensures the right people see the right signals.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Agent Auto-Update</h3>
+            <span class="feat-badge badge-new">NEW</span>
+          </div>
+          <p class="feat-card-text">Self-updating agent pulls from GitHub releases. Choose stable, beta, or nightly channels. Run <code>runright update</code> to upgrade in place.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enterprise Auth -->
+    <div class="feat-category">
+      <div class="feat-cat-header">
+        <div class="feat-cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.314 3.582-6 8-6s8 2.686 8 6"/><path d="M16 3.5h5M18.5 1v5"/></svg>
+        </div>
+        <h2 class="feat-cat-title">ENTERPRISE AUTH</h2>
+      </div>
+      <p class="feat-cat-desc">Built-in SSO, role-based access control, and full audit logging. No external identity provider required.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">SSO Integration</h3>
+            <span class="feat-badge badge-enterprise">ENTERPRISE</span>
+          </div>
+          <p class="feat-card-text">Supports Google, GitHub, Azure AD, Okta, generic OIDC with auto-discovery, and SAML 2.0 with IDP metadata configuration. Domain allowlists restrict login by email domain.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Role-Based Access Control</h3>
+            <span class="feat-badge badge-enterprise">ENTERPRISE</span>
+          </div>
+          <p class="feat-card-text">Five built-in roles (Owner, Admin, Billing, Operator, Viewer) plus custom role creation. Eight permission scopes let you build roles that fit your org.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-card-head">
+            <h3 class="feat-card-title">Audit Logging</h3>
+            <span class="feat-badge badge-enterprise">ENTERPRISE</span>
+          </div>
+          <p class="feat-card-text">Every create, update, and delete is logged with actor, timestamp, and changed fields. Granular tracking for alert and policy configuration changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="feat-cta">
+      <a href="install.html" class="feat-cta-btn">Install RunRight &rarr;</a>
+    </div>
+
+  </div>
+
+  <footer class="feat-footer">
+    <span>BUILT BY <a href="https://github.com/gbudjeakp" target="_blank" rel="noopener noreferrer" class="feat-footer-link">SEBASTIAN GBUDJE</a></span>
+    <a href="https://github.com/gbudjeakp/run-right" target="_blank" rel="noopener noreferrer" class="feat-footer-link" aria-label="RunRight on GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+    </a>
+  </footer>
+
+</div>
+
+<script>
+  // Dark mode toggle
+  const root = document.getElementById('root');
+  const toggle = document.getElementById('dark-toggle');
+  const iconMoon = document.getElementById('icon-moon');
+  const iconSun = document.getElementById('icon-sun');
+  const saved = localStorage.getItem('rr-theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    root.classList.add('lp-dark');
+    iconMoon.style.display = 'none';
+    iconSun.style.display = 'block';
+  }
+  toggle.addEventListener('click', () => {
+    const isDark = root.classList.toggle('lp-dark');
+    localStorage.setItem('rr-theme', isDark ? 'dark' : 'light');
+    iconMoon.style.display = isDark ? 'none' : 'block';
+    iconSun.style.display = isDark ? 'block' : 'none';
+  });
+
+  // Mobile nav
+  const navEl = document.querySelector('.pnav');
+  const hamburger = document.getElementById('pnav-hamburger');
+  const mobileMenu = document.getElementById('pnav-mobile');
+  if (hamburger && mobileMenu && navEl) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navEl.classList.toggle('pnav-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (navEl.classList.contains('pnav-open') && !navEl.contains(e.target)) {
+        navEl.classList.remove('pnav-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+</script>
+</body>
+</html>
