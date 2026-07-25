@@ -237,6 +237,7 @@
       <div class="ip-nav-group">
         <p class="ip-nav-group-label">Backend</p>
         <a href="#backend-setup" class="ip-nav-item">Self-Hosting the Backend</a>
+        <a href="#github-app" class="ip-nav-item">GitHub App</a>
         <a href="#api-key" class="ip-nav-item">API Key</a>
       </div>
       <div class="ip-nav-group">
@@ -626,6 +627,52 @@ volumes:
 # optional: seed with demo data
 go run ./cmd/seed/ --url http://localhost:8080</pre>
         </div>
+      </section>
+
+      <!-- GitHub App -->
+      <section id="github-app" class="ip-section">
+        <h2 class="ip-h2">GitHub App Integration</h2>
+        <p class="ip-p">Install the RunRight GitHub App to automatically receive workflow events, post PR comments with recommendations, and track CI usage across all repositories in your organization.</p>
+        <div class="ip-callout ip-callout-tip"><span class="ip-callout-label">Why use the GitHub App?</span>The GitHub App provides a seamless integration that automatically tracks all workflow runs, posts recommendations as PR comments, and gives you organization-wide visibility - no per-repo secrets required.</div>
+        
+        <h3 class="ip-h3">Features</h3>
+        <div class="ip-overview-grid" style="margin-bottom:24px;">
+          <div class="ip-overview-card"><strong class="ip-overview-title">Automatic Tracking</strong><p class="ip-overview-body">Receives webhook events for all workflow runs - no manual setup per repo.</p></div>
+          <div class="ip-overview-card"><strong class="ip-overview-title">PR Comments</strong><p class="ip-overview-body">Posts right-sizing recommendations directly on pull requests.</p></div>
+          <div class="ip-overview-card"><strong class="ip-overview-title">Org-Wide View</strong><p class="ip-overview-body">Dashboard shows all repos and jobs in one place.</p></div>
+          <div class="ip-overview-card"><strong class="ip-overview-title">No Secrets Needed</strong><p class="ip-overview-body">App authenticates via GitHub - no API keys to configure per repo.</p></div>
+        </div>
+
+        <h3 class="ip-h3">Install the App</h3>
+        <p class="ip-p">Install the public RunRight GitHub App on your organization or personal account:</p>
+        <div class="ip-code-block">
+          <div class="ip-code-header"><span class="ip-code-label">Install Link</span></div>
+          <pre class="ip-pre">https://github.com/apps/runright-ci/installations/new</pre>
+        </div>
+        <p class="ip-p">Select the repositories you want to monitor, then authorize the app. Webhook events will start flowing immediately.</p>
+
+        <h3 class="ip-h3">Self-Hosted GitHub App</h3>
+        <p class="ip-p">If you're self-hosting the RunRight backend, you can create your own GitHub App that points to your instance:</p>
+        <div class="ip-code-block">
+          <div class="ip-code-header"><span class="ip-code-label">1. Create the App</span><button class="ip-copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre class="ip-pre"># Use the manifest to create a GitHub App in one click:
+https://github.com/settings/apps/new?url=YOUR_BACKEND_URL/api/v1/github/manifest</pre>
+        </div>
+        <div class="ip-code-block">
+          <div class="ip-code-header"><span class="ip-code-label">2. Configure Environment</span><button class="ip-copy-btn" onclick="copyCode(this)">Copy</button></div>
+          <pre class="ip-pre"># Add these to your backend environment:
+GITHUB_APP_ID=123456
+GITHUB_APP_CLIENT_ID=Iv23li...
+GITHUB_APP_CLIENT_SECRET=your_client_secret
+GITHUB_APP_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----"
+GITHUB_APP_WEBHOOK_SECRET=your_webhook_secret
+GITHUB_APP_SLUG=your-app-name</pre>
+        </div>
+        <div class="ip-code-block">
+          <div class="ip-code-header"><span class="ip-code-label">3. Webhook URL</span></div>
+          <pre class="ip-pre">https://your-runright-backend.com/api/v1/github/webhook</pre>
+        </div>
+        <div class="ip-callout ip-callout-info"><span class="ip-callout-label">Permissions Required</span>The GitHub App needs: <strong>Actions</strong> (read), <strong>Checks</strong> (read), <strong>Contents</strong> (read), <strong>Metadata</strong> (read), <strong>Pull requests</strong> (write). Subscribe to webhook events: <code>workflow_run</code>, <code>workflow_job</code>, <code>check_run</code>, <code>installation</code>.</div>
       </section>
 
       <!-- API Key -->
